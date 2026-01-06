@@ -264,6 +264,10 @@
   color: var(--text-light);
 }
 
+.state_container{
+  text-align: center;
+}
+
 @keyframes float {
   0% {
     transform: translateY(0);
