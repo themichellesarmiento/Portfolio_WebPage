@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelle | Frontend Developer</title>
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="./js/script.js" defer></script>
+
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <h1 class="header_logo">MS</h1>
+
+      <ul>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <section class="intro">
+      <div class="intro_content">
+        <div class="image_container">
+          <img src="./assets/image.png" alt="a photo of a person" />
+        </div>
+        <h2 class="intro_name">Hi I'm Michelle</h2>
+        <h1 class="intro_title">Frontend Developer</h2>
+
+          <p class="intro_description">
+            I build clean, responsive interfaces with React and enjoy problem solving across the frontent, with backend
+            experience when needed.
+          </p>
+
+          <div class="intro_buttons">
+            <a href="#projects" class="btn btn_project">View Projects</a>
+            <a href="#contact" class="btn btn_contact">Contact</a>
+          </div>
+      </div>
+      <div class="intro_visuals">
+        <div class="intro_blob"></div>
+      </div>
+    </section>
+
+    <!---------------------------ABOUT SECTION-------------------------->
+
+    <section id="about" class="about">
+      <h3 class="section_title">About Me</h3>
+      <p>
+        Frontend-focused developer with professional experience building
+        real-world applications. I care about clean design, maintainable code,
+        and continuously improving my craft.
+      </p>
+    </section>
+
+
+    <!---------------------------PROJECT SECTION-------------------------->
+    <section id="projects" class="projects">
+      <h3 class="section_title">Projects</h3>
+      <div class="state_container"></div>
+      <div class="projects_container">
+      </div>
+    </section>
+
+    <!---------------------------SKILLS SECTION-------------------------->
+    <section id="skills" class="skills">
+      <h3 class="section_title">Skills</h3>
+
+      <div class="skills_container">
+        <div class="skills_card">
+          <h4>Frontend</h4>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ul>
+        </div>
+
+        <div class="skills_card">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>REST APIs</li>
+            <li>Mongoose</li>
+            <li>C#</li>
+          </ul>
+        </div>
+
+        <div class="skills_card">
+          <h4>Others</h4>
+          <ul>
+            <li>Figma</li>
+            <li>Styled Components</li>
+            <li>GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!---------------------------CONTACT SECTION-------------------------->
+    <section id="contacts" class="contacts">
+      <h3 class="section_title">Get In Touch</h3>
+      <div class="contacts_contents">
+        <div class="left_contents">
+          <div class="form">
+            <form action="mailto:michelleangelasarmiento@yahoo.com" method="POST" enctype="text/plain" class="form">
+              <div class="user_input">
+                <label for="name">Full Name/Company Name: </label>
+                <input type="text" name="name" id="name" required pattern="^[A-Z][a-z]+(\s[A-Z][a-z]?){0,}" />
+              </div>
+              <div class="user_input">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" maxlength="100" autocorrect="off" autocapitalize="off"
+                  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+              </div>
+              <div class="user_input">
+                <label for="message">Message: </label>
+                <textarea type="textarea" name="message" id="message" placeholder="Type your message here"
+                  required=""></textarea>
+              </div>
+              <div class="user_input">
+                <button class="submit">Send</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <div class="right_contents">
+          <p>If you'd like to collaborate or just say hi, feel free to reach out.</p>
+
+          <ul>
+            <li><a href="https://github.com/themichellesarmiento">GitHub</a></li>
+            <li><a href="mailto:michelleangelasarmiento@email.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/michelleangelasarmiento/">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+<footer class="footer">
+  <p>&copy Michelle Sarmiento 2026</p>
+</footer>
+
+</html>
