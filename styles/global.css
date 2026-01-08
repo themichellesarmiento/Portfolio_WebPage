@@ -52,6 +52,7 @@ h4 {
 p {
   font-size: 1rem;
   font-family: 'Geist Light', Arial, Helvetica, sans-serif;
+  margin-top: 0
 }
 
 btn,
@@ -60,6 +61,10 @@ label,
 li {
   font-size: 1rem;
   font-family: 'Geist ExtraLight', Arial, Helvetica, sans-serif;
+}
+
+strong {
+  font-family: 'Geist Medium', Arial, Helvetica, sans-serif;
 }
 
 a {

@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michelle | Frontend Developer</title>
+  <title>Michelle Sarmiento | Frontend Developer</title>
+  <link rel="icon" type="image/x-icon" href="./assets/icon.png">
   <link rel="stylesheet" href="styles/typography.css">
   <link rel="stylesheet" href="styles/global.css">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="./js/jquery-3.7.1.min.js" defer></script>
   <script src="./js/script.js" defer></script>
 
 </head>
@@ -15,20 +17,12 @@
 <body>
   <header class="header">
     <nav class="nav">
-      <h1 class="header_logo">MS</h1>
-
       <ul>
         <li>
-          <a href="#about">About</a>
+          <a href="index.html">Home</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="#skills">Skills</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
+          <a href="project.html">Projects</a>
         </li>
       </ul>
     </nav>
@@ -45,13 +39,13 @@
         <h1 class="intro_title">Frontend Developer</h2>
 
           <p class="intro_description">
-            I build clean, responsive interfaces with React and enjoy problem solving across the frontent, with backend
-            experience when needed.
+            Frontend-focused developer with backend experience when needed. I care about clean design,
+            maintainable code , problem solving across the stack and continuosly improving my craft.
           </p>
 
           <div class="intro_buttons">
-            <a href="#projects" class="btn btn_project">View Projects</a>
-            <a href="#contact" class="btn btn_contact">Contact</a>
+            <a href="project.html" class="btn btn_project">View Projects</a>
+            <a href="#contacts" class="btn btn_contact">Contact</a>
           </div>
       </div>
       <div class="intro_visuals">
@@ -63,19 +57,19 @@
 
     <section id="about" class="about">
       <h3 class="section_title">About Me</h3>
-      <p>
-        Frontend-focused developer with professional experience building
-        real-world applications. I care about clean design, maintainable code,
-        and continuously improving my craft.
-      </p>
-    </section>
-
-
-    <!---------------------------PROJECT SECTION-------------------------->
-    <section id="projects" class="projects">
-      <h3 class="section_title">Projects</h3>
-      <div class="state_container"></div>
-      <div class="projects_container">
+      <div class="about_wrapper">
+        <p>
+          I'm a Frontend Developer with a passion for creating beautiful, intuitive user experiences. I love combining
+          clean design with efficient code to build interfaces that feel effortless to use.
+        </p>
+        <p>
+          I started my journey in backend development using the .NET Framework, and that foundation helps me approach
+          frontend projects with a strong sense of structure and performance in mind.
+        </p>
+        <p>
+          I'm always learning new technologies and exploring better ways to optimize and collaborate — I thrive in teams
+          where we can share, grow, and inspire each other.
+        </p>
       </div>
     </section>
 
@@ -122,36 +116,36 @@
       <div class="contacts_contents">
         <div class="left_contents">
           <div class="form">
-            <form action="mailto:michelleangelasarmiento@yahoo.com" method="POST" enctype="text/plain" class="form">
+            <form action="https://formspree.io/f/xgovgqav" method="POST" class="form">
               <div class="user_input">
                 <label for="name">Full Name/Company Name: </label>
-                <input type="text" name="name" id="name" required pattern="^[A-Z][a-z]+(\s[A-Z][a-z]?){0,}" />
+                <input type="text" name="name" id="name" required />
               </div>
               <div class="user_input">
                 <label for="email">Email: </label>
                 <input type="email" name="email" id="email" maxlength="100" autocorrect="off" autocapitalize="off"
-                  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                  required />
               </div>
               <div class="user_input">
                 <label for="message">Message: </label>
-                <textarea type="textarea" name="message" id="message" placeholder="Type your message here"
-                  required=""></textarea>
+                <textarea name="message" id="message" required=""></textarea>
               </div>
-              <div class="user_input">
-                <button class="submit">Send</button>
-              </div>
-            </form>
+              <button type="submit" class="submit">Send</button>
 
+              <p class="form_status success" hidden>Thanks! Your message has been sent.</p>
+              <p class="form_status error" hidden>Oops! Something went wrong. Please try again.</p>
+            </form>
           </div>
         </div>
         <div class="right_contents">
           <p>If you'd like to collaborate or just say hi, feel free to reach out.</p>
 
-          <ul>
-            <li><a href="https://github.com/themichellesarmiento">GitHub</a></li>
-            <li><a href="mailto:michelleangelasarmiento@email.com">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/michelleangelasarmiento/">LinkedIn</a></li>
-          </ul>
+          <div class="contact_buttons">
+            <button><a href="https://github.com/themichellesarmiento" target="_blank">GitHub</a></button>
+            <button><a href="mailto:michelleangelasarmiento@email.com">Email</a></button>
+            <button><a href="https://www.linkedin.com/in/michelleangelasarmiento/" target="_blank">LinkedIn</a></button>
+          </div>
+
         </div>
       </div>
     </section>

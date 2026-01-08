@@ -5,19 +5,16 @@
   border-bottom: 1px solid var(--border);
   color: var(--text-light);
   z-index: 10;
+
 }
 
-.header_logo {
-  font-size: 1.5rem;
-}
 
 .nav {
-  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 2rem;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -48,9 +45,7 @@
   width: 100%;
 }
 
-.nav a:hover,
-.view_repo:hover,
-.view_demo:hover {
+.nav a:hover {
   color: var(--primary-light);
   font-family: 'Geist Medium', Arial, Helvetica, sans-serif;
 }
@@ -69,10 +64,27 @@
   overflow: hidden;
 }
 
+.card_image_container {
+  border: 4px solid var(--border);
+  align-self: center;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+/*ORDER OF CSS MATTERS HERE*/
 .image_container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+/*ORDER OF CSS MATTERS HERE*/
+.card_image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -172,14 +184,18 @@
   text-align: justify;
 }
 
-.projects_container,
+.about_wrapper,
+.skills_container,
+.contacts_contents {
+  margin: 1.5rem 1rem;
+}
+
 .skills_container,
 .contacts_contents {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   gap: 2rem;
-  margin-bottom: 1rem;
 }
 
 .skills_container h3 {
@@ -187,16 +203,49 @@
 }
 
 .card {
-  padding: 2rem;
-  border: 1px solid #eee;
-  background-color: var(--primary);
-  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+  background-color: var(--primary-light);
+  border-radius: 0.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-dark);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card_name {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.card_description {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.card_tech,
+.highlights {
+  margin-left: 0.5rem;
+}
+
+.label {
+  font-size: 1.1rem;
+  margin: 0.7rem 0rem;
+}
+
+.view_repo:hover,
+.view_demo:hover {
+  color: var(--primary);
 }
 
 .skills_card {
@@ -217,8 +266,36 @@
   margin-top: 1rem;
 }
 
+.contact_buttons,
+.card_actions_wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.contact_buttons {
+  flex-direction: column;
+  margin: 0rem 2rem;
+}
+
+.contact_buttons button {
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--primary-light);
+  background-color: var(--primary-dark);
+  color: var(--background);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.contact_buttons button:hover {
+  border: 1px solid var(--primary-light);
+  background-color: var(--primary-light);
+  color: var(--background);
+  cursor: pointer;
+}
+
 .form {
-  margin: 0.5rem;
   padding: 1rem;
   text-align: left;
 
@@ -244,8 +321,8 @@
 .submit {
   background-color: var(--primary-dark);
   border: 1px solid var(--primary-dark);
-  color: var(--tertiary-light);
-  cursor: grab;
+  color: var(--background);
+  cursor: pointer;
   padding: 0.5rem 1.5rem;
   text-transform: uppercase;
 }
@@ -264,8 +341,12 @@
   color: var(--text-light);
 }
 
-.state_container{
+.state_container {
   text-align: center;
+}
+
+.error {
+  color: #8d0801;
 }
 
 @keyframes float {
@@ -283,8 +364,8 @@
 }
 
 @media screen and (min-width:769px) {
-  .header_logo {
-    font-size: 2rem;
+  .nav {
+    justify-content: flex-end;
   }
 
   .nav ul {
@@ -292,19 +373,20 @@
   }
 
   .intro,
-  .projects_container,
   .skills_container,
   .contacts_contents {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  .projects_container .card {
-    flex: 0 0 calc(50% - 2rem);
+  .contact_buttons {
+    flex-direction: row;
   }
-  .form{
+
+  .form {
     margin: 0.5rem 1rem;
   }
+
   .left_contents {
     flex: 2;
   }
@@ -330,6 +412,19 @@
     padding: 3rem;
   }
 
+  .about_wrapper {
+   margin: 1rem 6rem;
+  }
+
+  .card {
+    margin: 2rem 1.5rem;
+  }
+
+  .card_image_container {
+    width: 650px;
+    height: 500px;
+  }
+
   .skills_card {
     gap: 2rem;
   }
@@ -337,4 +432,5 @@
   .skills_card li {
     margin-left: 0;
   }
+
 }
