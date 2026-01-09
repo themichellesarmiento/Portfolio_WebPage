@@ -1,7 +1,8 @@
 const apiUrl = (userName) => `https://api.github.com/users/${userName}/repos`
 const stateContainer = document.querySelector('.state_container');
 const projectsContainer = document.querySelector('.projects_container');
-const highlightsContainer = document.querySelector('.highlights')
+const highlightsContainer = document.querySelector('.highlights');
+const form = document.getElementById('contactForm');
 
 const customData = [
   {
@@ -95,7 +96,6 @@ const selectedRepositories = async () => {
   }
 }
 
-
 const displayRepositories = (repos) => {
 
   const projectIds = [
@@ -153,7 +153,43 @@ const displayRepositories = (repos) => {
   })
 }
 
-$('.image_container,.intro_name ,.projects_container').hide().fadeIn(3000)
+//Jquery
+$('.intro_name, .intro_title, .projects_container').hide().fadeIn(3000)
+
+//EVENT listeners
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const successMsg = form.querySelector('.success');
+    const errorMsg = form.querySelector('.error');
+
+    successMsg.hidden = true;
+    errorMsg.hidden = true;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        successMsg.hidden = false;
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+
+    } catch (error) {
+      errorMsg.hidden = false;
+    }
+  });
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   selectedRepositories();

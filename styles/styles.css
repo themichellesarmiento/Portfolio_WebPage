@@ -1,21 +1,18 @@
 .header {
-  position: sticky;
-  top: 0;
   background-color: var(--primary);
   border-bottom: 1px solid var(--border);
   color: var(--text-dark);
+  position: sticky;
+  top: 0;
   z-index: 10;
-
 }
 
-
 .nav {
-  margin: 0 auto;
-  padding: 2rem;
-
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .nav ul,
@@ -53,23 +50,25 @@
 .intro {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
   min-height: 100vh;
 }
 
 .image_container {
   align-self: center;
-  width: 300px;
-  height: 300px;
   border-radius: 50%;
+  height: 300px;
   overflow: hidden;
+  width: 300px;
 }
 
 .card_image_container {
-  border: 4px solid var(--border);
   align-self: center;
-  width: 300px;
+  border: 4px solid var(--border);
   height: 300px;
   overflow: hidden;
+  width: 300px;
 }
 
 /*ORDER OF CSS MATTERS HERE*/
@@ -89,18 +88,18 @@
 }
 
 .intro_content {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 1rem 1.5rem;
 }
 
 .intro_name {
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
   color: var(--text-light);
+  letter-spacing: 0.2rem;
+  margin: 1rem 0rem;
+  text-transform: uppercase;
 }
 
 .intro_title {
@@ -109,15 +108,15 @@
 }
 
 .intro_description {
-  max-width: 500px;
   line-height: 1.6;
   margin-bottom: 2.5rem;
+  max-width: 500px;
 }
 
 .btn {
+  border-radius: 4px;
   padding: 1rem;
   text-decoration: none;
-  border-radius: 4px;
 }
 
 .btn_project {
@@ -137,14 +136,14 @@
 }
 
 .intro_visuals {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
+  align-items: center;
   background: linear-gradient(135deg, #f5a3a3, #9b8cff);
   display: flex;
-  align-items: center;
+  flex: 1;
   justify-content: center;
   min-height: 60vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .intro_blob {
@@ -156,9 +155,8 @@
 }
 
 .main {
-  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 2rem;
 }
 
 .about,
@@ -168,9 +166,9 @@
 }
 
 .section_title {
+  letter-spacing: 0.1rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
 }
 
 .section_title::after {
@@ -196,8 +194,8 @@
 .contacts_contents {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 2rem;
+  justify-content: space-around;
 }
 
 .skills_container h3 {
@@ -205,17 +203,16 @@
 }
 
 .card {
-  padding: 1.5rem;
-  margin-bottom: 0.5rem;
-  border: 1px solid var(--border);
   background-color: var(--primary-light);
   border-radius: 0.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border);
   color: var(--text-dark);
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
@@ -224,9 +221,9 @@
 }
 
 .card_name {
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
   font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 .card_description {
@@ -274,25 +271,19 @@
   justify-content: center;
 }
 
-.contact_buttons {
-  flex-direction: column;
-  gap: 1rem;
-  margin: 0rem 2rem;
-}
-
 .contact_buttons a {
-  border: 1px solid var(--primary-light);
   background-color: var(--primary-dark);
+  border: 1px solid var(--primary-light);
   color: var(--background);
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
   font-size: 1rem;
+  letter-spacing: 0.1rem;
   padding: 1rem;
+  text-transform: uppercase;
 }
 
 .contact_buttons a:hover{
-  border: 1px solid var(--primary-light);
   background-color: var(--primary-light);
+  border: 1px solid var(--primary-light);
   color: var(--background);
   cursor: pointer;
 }
@@ -300,19 +291,16 @@
 .form {
   padding: 1rem;
   text-align: left;
-
 }
 
 .form input:required:focus {
   border: 5px solid var(--error);
-
 }
 
 .user_input {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
-
 }
 
 .form textarea {
@@ -335,12 +323,20 @@
 
 }
 
+.form_status {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.success {
+  color: var(--primary-dark)
+}
+
 .footer {
-  text-align: center;
-  padding: 2rem;
   background-color: var(--primary);
   border-top: 1px solid var(--border);
   color: var(--text-dark);
+  padding: 2rem;
+  text-align: center;
 }
 
 .state_container {
@@ -380,7 +376,7 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-
+  
   .contact_buttons {
     flex-direction: row;
   }
@@ -399,7 +395,7 @@
   }
 
   .intro_content {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .intro_visuals {
