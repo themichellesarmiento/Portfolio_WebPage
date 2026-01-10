@@ -9,7 +9,7 @@ const customData = [
     "name": "OldFashioned Webpage React",
     "description": "A modern React version of the classic webpage apparel, rebuilt using component based architecture and state management.",
     "highlights": [
-      "Component structure and reusable IU patterns",
+      "Component structure and reusable UI patterns",
       "State handling, use of hooks",
       "GET and POST requests made using Express"
     ],
