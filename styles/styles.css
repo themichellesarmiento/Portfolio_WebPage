@@ -281,7 +281,7 @@
   text-transform: uppercase;
 }
 
-.contact_buttons a:hover{
+.contact_buttons a:hover {
   background-color: var(--primary-light);
   border: 1px solid var(--primary-light);
   color: var(--background);
@@ -327,8 +327,18 @@
   margin-top: 1rem;
   font-size: 1rem;
 }
+
 .success {
   color: var(--primary-dark)
+}
+
+.loading_container {
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .footer {
@@ -376,7 +386,7 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .contact_buttons {
     flex-direction: row;
   }
@@ -411,7 +421,7 @@
   }
 
   .about_wrapper {
-   margin: 1rem 6rem;
+    margin: 1rem 6rem;
   }
 
   .card {

@@ -1,5 +1,6 @@
 const apiUrl = (userName) => `https://api.github.com/users/${userName}/repos`
 const stateContainer = document.querySelector('.state_container');
+const loadingState = document.querySelector('.loading_container')
 const projectsContainer = document.querySelector('.projects_container');
 const highlightsContainer = document.querySelector('.highlights');
 const form = document.getElementById('contactForm');
@@ -86,6 +87,8 @@ const selectedRepositories = async () => {
 
   const url = `${apiUrl(`${userName}`)}${sortParam}`;
 
+  loadingState.classList.remove('hidden')
+
   try {
 
     const allRepos = await getData(url)
@@ -93,6 +96,8 @@ const selectedRepositories = async () => {
 
   } catch (error) {
     renderError(`${error.message}. Try again!`)
+  } finally {
+    loadingState.classList.add('hidden');
   }
 }
 
