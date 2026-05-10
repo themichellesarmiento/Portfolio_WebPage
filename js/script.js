@@ -7,61 +7,88 @@ const form = document.getElementById('contactForm');
 
 const customData = [
   {
-    "name": "OldFashioned Webpage React",
-    "description": "A modern React version of the classic webpage apparel, rebuilt using component based architecture and state management.",
-    "highlights": [
-      "Component structure and reusable UI patterns",
-      "State handling, use of hooks",
-      "GET and POST requests made using Express"
+    id: 1224910347,
+    name: "Wine Collection",
+    description:
+      "A collection of wines where users can add/remove favorites and manage collections.",
+    highlights: [
+      "Context API and state management",
+      "Reusable components",
+      "Tailwind theme extensions",
+      "LocalStorage persistence",
+      "Client-side routing"
     ],
-    "tech_stack": "(React), Node.JS, Express",
-    "image": "./assets/oldfashioned_react.png",
-    "alt": "a picture of a contact formula"
-  },
-  {
-    "name": "Prisoner Of The Labyrinth II",
-    "description": "A UI-driven browser game based version of the original labyrinth project, featuring a randomized dungeon, live map rendering and simple enemy moves.",
-    "highlights": [
-      "Dynamic map updates",
-      "Button-based controls",
-      "Game state management, procedural logic"
-    ],
-    "tech_stack": "(Vanilla), HTML, CSS, JQuery ",
-    "image": "./assets/labyrinth2.png",
-    "alt": "a picture of a game map"
-
-  },
-  {
-    "name": "Prisoner Of The Labyrinth",
-    "description": "A JavaScript console based adventure game. Focuses on interactive game logic, DOM manipulation, and logic flow in pure JavaScript",
-    "highlights": [
-      "Dynamic DOM updates based on user move actions"
-    ],
-    "tech_stack": "(Vanilla), HTML , CSS,",
-    "webpage": "https://themichellesarmiento.github.io/PrisonerOfTheLabyrinth/",
-    "image": "./assets/labyrinth1.png",
-    "alt": "a picture of game instructions"
-  },
-  {
-    "name": "OldFashioned Webpage",
-    "description": "A clean, responsive e-commerce styled webpage",
-    "highlights": [
-      "Responsive layout and typography",
-      "Product card design and visual hierarchy"
-    ],
-    "tech_stack": ",CSS",
-    "webpage": "https://themichellesarmiento.github.io/OldFashioned_ApparelWebpage/",
-    "image": "./assets/oldfashioned.png",
-    "alt": "a picture of oldfashioned webpage header"
+    techStack: ["React", "Vite", "Tailwind"],
+    image: "./assets/wine_collection.png",
+    alt: "Wine collection application"
   },
 
-]
+  {
+    id: 1228106267,
+    name: "The Beet RestoBar",
+    description: "Restaurant and bar web application.",
+    highlights: [
+      "API integration",
+      "Routing",
+      "Responsive UI"
+    ],
+    techStack: ["React", "Vite", "Material UI"],
+    image: "./assets/thebeet.png",
+    alt: "Restaurant menu interface"
+  },
+
+  {
+    id: 1194527696,
+    name: "SoftStay HomeRental",
+    description: "Room rental booking platform.",
+    highlights: [
+      "Reusable UI patterns",
+      "Context API and state handling",
+      "Search params and filtering",
+      "API integration",
+      "Routing",
+      "Booking edge case handling"
+    ],
+    techStack: ["React", "Vite"],
+    image: "./assets/softstay.png",
+    alt: "Accommodation listing page"
+  },
+
+  {
+    id: 1175914056,
+    name: "StackBrew CoffeeShop",
+    description: "Coffee shop e-commerce interface.",
+    highlights: [
+      "Cart functionality",
+      "Context API",
+      "State management"
+    ],
+    techStack: ["React"],
+    image: "./assets/stackbrew.png",
+    alt: "Shopping cart interface"
+  },
+
+  {
+    id: 1121734588,
+    name: "OldFashioned Webpage",
+    description:
+      "A modern React rebuild of a classic apparel webpage using component-based architecture.",
+    highlights: [
+      "Reusable components",
+      "Hooks and state handling",
+      "Express GET/POST requests"
+    ],
+    techStack: ["React", "Node.js", "Express"],
+    image: "./assets/oldfashioned_react.png",
+    alt: "Contact form interface"
+  }
+];
 
 const clearContainer = (container) => {
   container.innerHTML = "";
 }
 
-const renderError = (message => {
+const renderError = (message) => {
   if (!stateContainer) return;
 
   clearContainer(stateContainer);
@@ -71,7 +98,7 @@ const renderError = (message => {
   errorMessage.classList.add('error');
 
   stateContainer.appendChild(errorMessage);
-})
+}
 
 const getData = async (url, errorMessage = 'Something went wrong') => {
   const response = await fetch(url);
@@ -103,60 +130,93 @@ const selectedRepositories = async () => {
 
 const displayRepositories = (repos) => {
 
-  const projectIds = [
-    1121734588,
-    1103721071,
-    1086493077,
-    1061928153
-  ]
-
   if (!repos.length) {
     renderError('No repositories found');
     return;
   }
 
-  const ownedRepos = repos.filter(r => !r.fork && projectIds.includes(r.id));
+  const customDataMap = new Map(
+    customData.map(project => [project.id, project])
+  );
 
-  ownedRepos.forEach((el, i) => {
+  const ownedRepos = repos.filter(
+    repo => !repo.fork && customDataMap.has(repo.id)
+  );
 
-    const card = document.createElement('div')
-    card.classList.add('card')
+  clearContainer(projectsContainer);
 
-    const name = customData[i].name
-    const image = customData[i].image
-    const altText = customData[i].alt
-    const description = el.description || customData[i].description
-    const techStack = `${el.language} ${customData[i].tech_stack}`
-    const websiteUrl = el.homepage || customData[i].webpage
-    const repoHighlights = customData[i].highlights.map(el => `<li>${el}</li>`).join('');
+  ownedRepos.forEach(repo => {
 
-    const label = websiteUrl ? 'View Demo' : 'No Demo Available';
+    const project = customDataMap.get(repo.id);
 
-    card.innerHTML =
-      ` 
-        <h4 class="card_name">${name}</h4>
-        <div class="card_image_container">
-          <img src=${image} alt=${altText} />
-        </div>
+    const {
+      name,
+      image,
+      alt,
+      description,
+      highlights,
+      techStack
+    } = project;
 
-        <p class="card_description">${description}</p>
-        
-        <div class="label"><strong>Key Highlights:</strong></div>
-           <ul class="highlights">
-            ${repoHighlights}
-           </ul>
- 
-        <div class="label"><strong>Tech Stack:</strong></div>
-        <p class="card_tech">${techStack}</p>
+    const websiteUrl = repo.homepage;
+    const label = websiteUrl
+      ? 'View Demo'
+      : 'No Demo Available';
 
-        <div class="card_actions_wrapper">
-          <p class="view_repo"><a href='${el.html_url}' target='_blank'>View Repository</a></p>
-          <p class="view_demo"><a href='${websiteUrl}' target='_blank'>${label}</a></p>
-        </div>
-      `
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+      <h4 class="card_name">${name}</h4>
+
+      <div class="card_image_container">
+        <img src="${image}" alt="${alt}" />
+      </div>
+
+      <p class="card_description">
+        ${repo.description || description}
+      </p>
+
+      <div class="label">
+        <strong>Key Highlights:</strong>
+      </div>
+
+      <ul class="highlights">
+        ${highlights.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+
+      <div class="label">
+        <strong>Tech Stack:</strong>
+      </div>
+
+      <p class="card_tech">
+        ${techStack.join(' • ')}
+      </p>
+
+      <div class="card_actions_wrapper">
+        <p class="view_repo">
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+            View Repository
+          </a>
+        </p>
+
+        ${
+          websiteUrl
+            ? `
+              <p class="view_demo">
+                <a href="${websiteUrl}" target="_blank" rel="noopener noreferrer">
+                  ${label}
+                </a>
+              </p>
+            `
+            : ''
+        }
+      </div>
+    `;
+
     projectsContainer.appendChild(card).fadeIn;
-  })
-}
+  });
+};
 
 //Jquery
 $('.intro_name, .intro_title, .projects_container').hide().fadeIn(3000)
