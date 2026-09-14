@@ -7,6 +7,20 @@ const form = document.getElementById('contactForm');
 
 const customData = [
   {
+    id: 1354896285,
+    name: 'The Beet Bar Menu',
+    description: 'A cocktail bar menu app with a mock login flow, personalized recommendations, and a per-user saved cart, built with dynamic routing against a live cocktail API.',
+    highlights: [
+      "Context API for session state, cart, and toast notifications",
+      "Dynamic routing",
+      "Per-user cart persistence with LocalStorage",
+      "Conditional rendering based on login state",
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Tailwind', 'TheCocktailDb API'],
+    image: './assets/bar_menu.png',
+    alt: 'Bar Menu categories page'
+  },
+  {
     id: 1224910347,
     name: "Wine Collection",
     description:
@@ -200,17 +214,16 @@ const displayRepositories = (repos) => {
           </a>
         </p>
 
-        ${
-          websiteUrl
-            ? `
+        ${websiteUrl
+        ? `
               <p class="view_demo">
                 <a href="${websiteUrl}" target="_blank" rel="noopener noreferrer">
                   ${label}
                 </a>
               </p>
             `
-            : ''
-        }
+        : ''
+      }
       </div>
     `;
 
